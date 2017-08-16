@@ -4,7 +4,7 @@
  *
  * @author: Paul Hodel <paul.hodel@gmail.com>
  * @description: Create light embedded spreadsheets on your webpages
- * 
+ *
  * ROADMAP:
  * Online collaboration
  * Merged cells
@@ -19,7 +19,7 @@ var methods = {
 
     /**
      * Innitialization, configuration and loading
-     * 
+     *
      * @param {Object} options configuration
      * @return void
      */
@@ -180,7 +180,7 @@ var methods = {
 
                         // Data
                         options.data = data;
- 
+
                         // Prepare table
                         prepareTable();
                     }
@@ -206,7 +206,7 @@ var methods = {
 
     /**
      * Create the table
-     * 
+     *
      * @return void
      */
     createTable : function() {
@@ -254,7 +254,7 @@ var methods = {
         }
 
         // Populate header
-        $(thead).html('<tr>' + tr + '</tr>'); 
+        $(thead).html('<tr>' + tr + '</tr>');
 
         // TODO: filter row
         //<tr><td></td><td><input type="text"></td></tr>
@@ -422,7 +422,7 @@ var methods = {
                                         $('.jexcel_corner').css('left', '-200px');
                                     }
                                 } else {
-                                    // Get cell objects 
+                                    // Get cell objects
                                     var o1 = $('#' + $.fn.jexcel.current).find('#' + o[1] + '-0');
                                     var o2 = $('#' + $.fn.jexcel.current).find('#' + d[1] + '-' + parseInt($.fn.jexcel.defaults[$.fn.jexcel.current].data.length - 1));
 
@@ -466,7 +466,7 @@ var methods = {
                                         $.fn.jexcel.selectedRow = $(e.target);
                                     }
 
-                                    // Get cell objects 
+                                    // Get cell objects
                                     var o1 = $('#' + $.fn.jexcel.current).find('#0-' + o[1]);
                                     var o2 = $('#' + $.fn.jexcel.current).find('#' + parseInt($.fn.jexcel.defaults[$.fn.jexcel.current].columns.length - 1) + '-' + d[1]);
 
@@ -512,7 +512,7 @@ var methods = {
                 }
             });
 
-            // Global mouse click up controles 
+            // Global mouse click up controles
             $(document).on('mouseup', function (e) {
                 if (e.target.id == 'jexcel_arrow') {
                     if (! $.fn.jexcel.current) {
@@ -668,7 +668,7 @@ var methods = {
                         }
                     }
                 } else {
-                    
+
                 }
 
                 // Keeping visual indication
@@ -697,7 +697,7 @@ var methods = {
                                     if (o && d) {
                                         o = o.split('-');
                                         d = d.split('-');
-                                        // Get cell objects 
+                                        // Get cell objects
                                         var o1 = $('#' + $.fn.jexcel.current).find('#' + o[1] + '-0');
                                         var o2 = $('#' + $.fn.jexcel.current).find('#' + d[1] + '-' + parseInt($.fn.jexcel.defaults[$.fn.jexcel.current].data.length - 1));
                                         // Update selection
@@ -719,7 +719,7 @@ var methods = {
                                         if (o && d) {
                                             o = o.split('-');
                                             d = d.split('-');
-                                            // Get cell objects 
+                                            // Get cell objects
                                             var o1 = $('#' + $.fn.jexcel.current).find('#0-' + o[1]);
                                             var o2 = $('#' + $.fn.jexcel.current).find('#' + parseInt($.fn.jexcel.defaults[$.fn.jexcel.current].columns.length - 1) + '-'  + d[1]);
                                             // Update selection
@@ -873,7 +873,7 @@ var methods = {
                                     if ($.fn.jexcel.defaults[$.fn.jexcel.current].editable == true) {
                                         // If is not readonly
                                         if ($.fn.jexcel.defaults[$.fn.jexcel.current].columns[columnId[0]].type != 'readonly') {
-                                            // Start edition in case a valid character. 
+                                            // Start edition in case a valid character.
                                             if (! $($.fn.jexcel.selectedCell).hasClass('edition')) {
                                                 // TODO: check the sample characters able to start a edition
                                                 if (/[a-zA-Z0-9]/.test(String.fromCharCode(e.keyCode))) {
@@ -983,7 +983,7 @@ var methods = {
 
     /**
      * Set data
-     * 
+     *
      * @param array data In case no data is sent, default is reloaded
      * @return void
      */
@@ -1034,7 +1034,7 @@ var methods = {
             // New line of data to be append in the table
             tr = document.createElement('tr');
             // Index column
-            $(tr).append('<td id="row-' + j + '" class="jexcel_label">' + parseInt(j + 1) + '</td>'); 
+            $(tr).append('<td id="row-' + j + '" class="jexcel_label">' + parseInt(j + 1) + '</td>');
             // Data columns
             for (i = 0; i < $.fn.jexcel.defaults[id].colHeaders.length; i++) {
                 // New column of data to be append in the line
@@ -1061,7 +1061,7 @@ var methods = {
 
     /**
      * Update table settings helper. Update cells after loading
-     * 
+     *
      * @param methods
      * @return void
      */
@@ -1091,7 +1091,7 @@ var methods = {
 
     /**
      * Open the editor
-     * 
+     *
      * @param object cell
      * @return void
      */
@@ -1167,7 +1167,7 @@ var methods = {
                     $(editor).blur(function () {
                         $(main).jexcel('closeEditor', $(this).parent(), true);
                     });
-                    
+
                     $(editor).focus();
                     if (value) {
                         $(editor).val(value);
@@ -1228,7 +1228,7 @@ var methods = {
                         }
 
                         // Delay search
-                        timeout = setTimeout(function () { 
+                        timeout = setTimeout(function () {
                             // Object
                             $(result).html('');
                             // List result
@@ -1328,7 +1328,7 @@ var methods = {
 
     /**
      * Close the editor and save the information
-     * 
+     *
      * @param object cell
      * @param boolean save
      * @return void
@@ -1440,7 +1440,7 @@ var methods = {
 
     /**
      * Get the value from a cell
-     * 
+     *
      * @param object cell
      * @return string value
      */
@@ -1484,7 +1484,7 @@ var methods = {
                     // Get default value
                     value = $(cell).find('input');
                     if ($(value).length) {
-                        value = $(value).val(); 
+                        value = $(value).val();
                     } else {
                         value = $(cell).html();
                     }
@@ -1497,7 +1497,7 @@ var methods = {
 
     /**
      * Set a cell value
-     * 
+     *
      * @param object cell destination cell
      * @param object value value
      * @return void
@@ -1607,7 +1607,11 @@ var methods = {
                 }
 
                 // Get value from column and set the default
-                $.fn.jexcel.defaults[id].data[position[1]][position[0]] = value;
+                if (options.columns[position[0]].type === 'numeric') {
+                    $.fn.jexcel.defaults[id].data[position[1]][position[0]] = Number(value);
+                } else {
+                    $.fn.jexcel.defaults[id].data[position[1]][position[0]] = value;
+                }
 
                 // Change
                 if (! ignoreEvents) {
@@ -1630,7 +1634,7 @@ var methods = {
 
     /**
      * Update the cells selection
-     * 
+     *
      * @param object o cell origin
      * @param object d cell destination
      * @return void
@@ -1777,12 +1781,12 @@ var methods = {
 
     /**
      * Update corner position
-     * 
+     *
      * @return void
      */
     updateCornerPosition : function() {
         var cells = $(this).find('.highlight');
-        if ($(cells).length) { 
+        if ($(cells).length) {
             corner = $(cells).last();
 
             // Get the position of the corner helper
@@ -1797,7 +1801,7 @@ var methods = {
 
     /**
      * Get the data from a row
-     * 
+     *
      * @param integer row number
      * @return string value
      */
@@ -1820,7 +1824,7 @@ var methods = {
 
     /**
      * Get the whole table data
-     * 
+     *
      * @param integer row number
      * @return string value
      */
@@ -1861,7 +1865,7 @@ var methods = {
 
     /**
      * Copy method
-     * 
+     *
      * @param bool highlighted - Get only highlighted cells
      * @param delimiter - \t default to keep compatibility with excel
      * @return string value
@@ -1897,7 +1901,7 @@ var methods = {
                     // Get value
                     val = $(this).jexcel('getValue', $(cell));
                     if (val.match(/,/g)) {
-                        val = '"' + val + '"'; 
+                        val = '"' + val + '"';
                     }
                     row += val;
                     pc = true;
@@ -1936,7 +1940,7 @@ var methods = {
 
     /**
      * Paste method TODO: if the clipboard is larger than the table create automatically columns/rows?
-     * 
+     *
      * @param integer row number
      * @return string value
      */
@@ -1976,7 +1980,7 @@ var methods = {
                 for (i = 0; i < row.length; i++) {
                     // Get cell
                     cell = $(this).find('#' + (parseInt(i) + parseInt(x))  + '-' + (parseInt(j) + parseInt(y)));
-    
+
                     // If cell exists
                     if ($(cell).length > 0) {
                         $(this).jexcel('setValue', $(cell), row[i], false, true);
@@ -1988,7 +1992,7 @@ var methods = {
 
     /**
      * Insert a new column
-     * 
+     *
      * @param  object properties - column properties
      * @param  int numColumns - number of columns to be created
      * @return void
@@ -2060,7 +2064,7 @@ var methods = {
 
     /**
      * Insert a new row
-     * 
+     *
      * @param object numLines - how many lines to be included
      * @return void
      */
@@ -2075,7 +2079,7 @@ var methods = {
         if (! numLines) {
             // Add one line is the default
             numLines = 1;
-        } 
+        }
 
         j = parseInt($.fn.jexcel.defaults[id].data.length);
 
@@ -2371,7 +2375,7 @@ var methods = {
 
     /**
      * Multi-utility helper
-     * 
+     *
      * @param object options { action: METHOD_NAME }
      * @return mixed
      */
@@ -2396,7 +2400,7 @@ var methods = {
 
     /**
      * Download CSV table
-     * 
+     *
      * @return null
      */
     download : function () {
@@ -2580,7 +2584,7 @@ var methods = {
 
     /**
      * Convert excel like column to jexcel id
-     * 
+     *
      * @param string id
      * @return string id
      */
@@ -2598,7 +2602,7 @@ var methods = {
 
     /**
      * Convert jexcel id to excel like column name
-     * 
+     *
      * @param string id
      * @return string id
      */
